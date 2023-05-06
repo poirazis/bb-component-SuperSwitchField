@@ -1,0 +1,17 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "bb-component-SuperSwitch",
+    "friendlyName": "bb-component-SuperSwitch",
+    "description": "A switch component for Budibase. Works both as an input or as a button.",
+    "icon": "Text",
+    "settings": [
+      {
+        "type": "text",
+        "key": "text",
+        "label": "Text"
+      }
+    ]
+  }
+}
