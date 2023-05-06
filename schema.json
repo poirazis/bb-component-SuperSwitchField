@@ -3,14 +3,48 @@
   "metadata": {},
   "schema": {
     "name": "bb-component-SuperSwitch",
-    "friendlyName": "bb-component-SuperSwitch",
+    "friendlyName": "Super Switch Field",
     "description": "A switch component for Budibase. Works both as an input or as a button.",
     "icon": "Text",
     "settings": [
       {
+        "type": "field/boolean",
+        "key": "field",
+        "label": "Field",
+        "required": true
+      },
+      {
         "type": "text",
-        "key": "text",
-        "label": "Text"
+        "key": "label",
+        "label": "Label"
+      },
+      {
+        "type": "text",
+        "key": "defaultValue",
+        "label": "Default Value"
+      },
+      {
+        "type" : "select",
+        "key" : "size",
+        "label" : "Size",
+        "options" : [
+          { "label" : "Small", "value": "S" },
+          { "label" : "Medium", "value": "M" },
+          { "label" : "Large", "value": "L" },
+          { "label" : "Extra Large", "value": "XL" }
+        ],
+        "defaultValue": "M"
+      },
+      {
+        "type" : "boolean",
+        "key": "emphasized",
+        "label" : "Emphasized"
+      },
+      {
+        "type" : "boolean",
+        "key": "disabled",
+        "label" : "Disabled",
+        "defaultValue" : false
       }
     ]
   }
