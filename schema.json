@@ -24,18 +24,6 @@
         "label": "Default Value"
       },
       {
-        "type" : "select",
-        "key" : "size",
-        "label" : "Size",
-        "options" : [
-          { "label" : "Small", "value": "S" },
-          { "label" : "Medium", "value": "M" },
-          { "label" : "Large", "value": "L" },
-          { "label" : "Extra Large", "value": "XL" }
-        ],
-        "defaultValue": "M"
-      },
-      {
         "type" : "boolean",
         "key": "emphasized",
         "label" : "Emphasized"
@@ -45,6 +33,11 @@
         "key": "disabled",
         "label" : "Disabled",
         "defaultValue" : false
+      },
+      {
+        "type" : "event",
+        "key" : "onChange",
+        "label" : "On Change"
       }
     ]
   }

@@ -1,4 +1,6 @@
 <script>
+  import "../node_modules/@spectrum-css/switch/dist/index-vars.css"
+
   import { getContext, onDestroy } from "svelte"
 
   const { styleable } = getContext("sdk")
@@ -15,6 +17,7 @@
   export let defaultValue
   export let emphasized
   export let size = "M"
+  export let onChange
 
   let formField
   let formStep
@@ -23,9 +26,22 @@
   let value
   let labelPos = fieldGroup?.labelPos || "left" 
 
+  const isTruthy = value => {
+    if (!value) {
+      return false
+    }
+    if (value === true) {
+      return true
+    }
+    if (typeof value === "string" && value.toLowerCase() === "true") {
+      return true
+    }
+    return false
+  }
+
   $: formStep = formStepContext ? $formStepContext || 1 : 1;
   $: formField = formApi?.registerField(field, "boolean", 0, false, null, formStep);
-  $: value = fieldState?.value || defaultValue
+  $: value = fieldState?.value || isTruthy(defaultValue)
   $: disabled = disabled || fieldState?.disabled
 
   $: unsubscribe = formField?.subscribe((value) => {
@@ -33,18 +49,16 @@
     fieldApi = value?.fieldApi;
   });
 
-
-  function handleClick( event ) {
+  function handleChange( event ) {
     value = !value
     fieldApi.setValue(value)
+    onChange?.()
   }
 ``
   onDestroy(() => {
     fieldApi?.deregister();
     unsubscribe?.();  
   });
-
-  $: console.log(label, emphasized)
 </script>
 
 <div class="spectrum-Form-item" use:styleable={$component.styles}>
@@ -57,24 +71,21 @@
     <label class="spectrum-FieldLabel spectrum-FieldLabel--sizeM spectrum-Form-itemLabel spectrum-FieldLabel--{labelPos}" for={fieldState?.fieldId}>{ label }</label>
     <div class="spectrum-Form-itemField">
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <div on:click={handleClick} class:spectrum-Switch--emphasized={emphasized} class="spectrum-Switch spectrum-Switch--size{size}" >
-        <input id={fieldState?.fieldId} type="checkbox" class="spectrum-Switch-input" checked={value} disabled={disabled}>
+      <div class:spectrum-Switch--emphasized={emphasized} class="spectrum-Switch spectrum-Switch--size{size}" >
+        <input on:change={handleChange} id={fieldState?.fieldId} type="checkbox" class="spectrum-Switch-input" checked={value} disabled={disabled}>
           <span class="spectrum-Switch-switch"></span>
       </div>
     </div>
   {:else}
-   
     <div class="spectrum-Form-itemField" >
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <div on:click={handleClick}  class:spectrum-Switch--emphasized={emphasized} class="spectrum-Switch spectrum-Switch--size{size}" >
-        <input id={fieldState?.fieldId} type="checkbox" class="spectrum-Switch-input" checked={value} disabled={disabled}>
+      <div class:spectrum-Switch--emphasized={emphasized} class="spectrum-Switch spectrum-Switch--size{size}" >
+        <input on:change={handleChange} id={fieldState?.fieldId} type="checkbox" class="spectrum-Switch-input" checked={value} disabled={disabled}>
           <span class="spectrum-Switch-switch"></span>
           <label
             style:margin-left={"0.85rem"}
-            class="spectrum-FieldLabel spectrum-FieldLabel--sizeM spectrum-Form-itemLabel" 
+            class="spectrum-FieldLabel spectrum-FieldLabel--size{size} spectrum-Form-itemLabel" 
             for={fieldState?.fieldId}>{ label }</label>
-      </div>
-      
+      </div>  
     </div>
   {/if}
 

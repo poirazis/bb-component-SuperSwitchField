@@ -286,10 +286,15 @@
   resolved "https://registry.yarnpkg.com/@sideway/pinpoint/-/pinpoint-2.0.0.tgz#cff8ffadc372ad29fd3f78277aeb29e632cc70df"
   integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
 
-"@spectrum-css/switch@^3.0.30":
-  version "3.0.30"
-  resolved "https://registry.yarnpkg.com/@spectrum-css/switch/-/switch-3.0.30.tgz#5f337c2232cf4ca6c7a1e6803f0041cbef8df7e6"
-  integrity sha512-Ca3xTVD6vjXg1ZWyVLzSTJ9wVSNJhsA49tbB4IarP0EL/g4RX6USDbc22/q/wN24rI98wHpCL7fRV9QMJPJVpg==
+"@spectrum-css/switch@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@spectrum-css/switch/-/switch-1.0.2.tgz#f0b4c69271964573e02b08e90998096e49e1de44"
+  integrity sha512-zqmHpgWPNg1gEwdUNFYV3CBX5JaeALfIqcJIxE0FLZqr9d1C4+oLE0ItIFzt1bwr4bFAOmkEpvtiY+amluzGxQ==
+
+"@spectrum-css/vars@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@spectrum-css/vars/-/vars-3.0.1.tgz#561fd69098f896a647242dd8d6108af603bfa31e"
+  integrity sha512-l4oRcCOqInChYXZN6OQhpe3isk6l4OE6Ys8cgdlsiKp53suNoQxyyd9p/eGRbCjZgH3xQ8nK0t4DHa7QYC0S6w==
 
 "@techpass/passport-openidconnect@0.3.2":
   version "0.3.2"
@@ -685,9 +690,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001449:
-  version "1.0.30001485"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001485.tgz#026bb7319f1e483391872dc303a973d4f513f619"
-  integrity sha512-8aUpZ7sjhlOyiNsg+pgcrTTPUXKh+rg544QYHSvQErljVEKJzvkYkCR/hUFeeVoEfTToUtY9cUKNRC7+c45YkA==
+  version "1.0.30001486"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001486.tgz#56a08885228edf62cbe1ac8980f2b5dae159997e"
+  integrity sha512-uv7/gXuHi10Whlj0pp5q/tsK/32J2QSqVRKQhs2j8VsDCjgyruAh/eEXHF822VqO9yT6iZKw3nRwZRSPBE9OQg==
 
 caseless@~0.12.0:
   version "0.12.0"
