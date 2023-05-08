@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A switch component for Budibase. Works both as an input or as a button.",
   "license": "MIT",
+  "author": "Michael Poirazi",
   "svelte": "index.js",
   "module": "dist/plugin.min.js",
   "scripts": {
