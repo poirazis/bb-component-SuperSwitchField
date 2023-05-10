@@ -12,6 +12,7 @@
   const formApi = formContext?.formApi;
 
   export let label
+  export let labelPos = "right"
   export let disabled
   export let field
   export let defaultValue
@@ -24,7 +25,6 @@
   let fieldState
   let fieldApi
   let value
-  let labelPos = fieldGroup?.labelPos || "left" 
 
   const isTruthy = value => {
     if (!value) {
@@ -67,8 +67,8 @@
     <div class="placeholder">Form components need to be wrapped in a form</div>
   {:else if !field}
     <div class="welcome"> Please Select a Field to get Started </div>
-  {:else if fieldGroup}
-    <label class="spectrum-FieldLabel spectrum-FieldLabel--sizeM spectrum-Form-itemLabel spectrum-FieldLabel--{labelPos}" for={fieldState?.fieldId}>{ label }</label>
+  {:else if labelPos == "left"}
+    <label class="spectrum-FieldLabel spectrum-FieldLabel--sizeM spectrum-Form-itemLabel spectrum-FieldLabel--left" for={fieldState?.fieldId}>{ label }</label>
     <div class="spectrum-Form-itemField">
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class:spectrum-Switch--emphasized={emphasized} class="spectrum-Switch spectrum-Switch--size{size}" >
@@ -77,15 +77,14 @@
       </div>
     </div>
   {:else}
+  <label class="spectrum-FieldLabel spectrum-FieldLabel--sizeM spectrum-Form-itemLabel" for={fieldState?.fieldId}> </label>
     <div class="spectrum-Form-itemField" >
       <div class:spectrum-Switch--emphasized={emphasized} class="spectrum-Switch spectrum-Switch--size{size}" >
         <input on:change={handleChange} id={fieldState?.fieldId} type="checkbox" class="spectrum-Switch-input" checked={value} disabled={disabled}>
           <span class="spectrum-Switch-switch"></span>
-          <label
-            style:margin-left={"0.85rem"}
-            class="spectrum-FieldLabel spectrum-FieldLabel--size{size} spectrum-Form-itemLabel" 
-            for={fieldState?.fieldId}>{ label }</label>
+          <span style:margin-left={"0.85rem"} > {label} </span>
       </div>  
+
     </div>
   {/if}
 

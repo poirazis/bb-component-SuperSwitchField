@@ -1,6 +1,6 @@
 {
   "name": "bb-component-SuperSwitch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A switch component for Budibase. Works both as an input or as a button.",
   "license": "MIT",
   "author": "Michael Poirazi",
